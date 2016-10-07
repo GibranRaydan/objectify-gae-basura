@@ -11,7 +11,7 @@ public class RootServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        addCorsHeader(resp);
+        Util.addCorsHeader(resp);
         String name = req.getParameter("name");
 
         if(name==null || name.equals(""))
@@ -22,10 +22,5 @@ public class RootServlet extends HttpServlet {
         req.getRequestDispatcher("/hello.jsp").forward(req, resp);
     }
 
-    private void addCorsHeader(HttpServletResponse response){
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
-        response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
-        response.addHeader("Access-Control-Max-Age", "1728000");
-    }
+
 }
