@@ -9,16 +9,12 @@ import java.util.Date;
 @Entity
 public class Comment {
     @Id
-    public Long id;
-
-    public String author;
-
-    public String text;
-
-    public String postID;
-
+    private Long id;
+    private String author;
+    private String text;
+    private String postID;
     @Index
-    public Date date;
+    private Date date;
 
     public Comment() {
     }
@@ -30,4 +26,23 @@ public class Comment {
         this.date = new Date();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public String getPostID() {
+        return postID;
+    }
+
+    public Date getDate() {
+        return date;
+    }
 }
