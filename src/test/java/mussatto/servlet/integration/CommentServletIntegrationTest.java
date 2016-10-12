@@ -17,7 +17,7 @@ public class CommentServletIntegrationTest {
 
         params.put("author", "Noel Rosa");
         params.put("text", "com que roupa eu vou, pro samba que voce me convidou?");
-        params.put("postID", "http://mussatto.github.io/appengine/compilation/error/java/2016/10/07/appengine-error-compilation.html");
+        params.put("postID", "123456");
         JSONPost post = new JSONPost("http://localhost:8080/comment", params);
 
         try {
