@@ -1,6 +1,7 @@
 package mussatto.servlet;
 
 import com.google.gson.Gson;
+import com.googlecode.objectify.ObjectifyService;
 import mussatto.model.Comment;
 import mussatto.service.OfyService;
 
@@ -20,7 +21,14 @@ public class CommentServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        log.info("CommentServlet.doGet");
+          String author = "aaa!";
+        String text = "aaa!";
+        String postID = "aaa!";
+ ObjectifyService.init();
+        Comment comment = new Comment(author, text, postID);
+        OfyService.ofy().save().entity(comment).now();
+
+        /*log.info("CommentServlet.doGet");
         String postID = req.getParameter("postID");
         log.info("CommentServlet.postID=" + postID);
         Util.addCorsHeader(resp);
@@ -34,7 +42,8 @@ public class CommentServlet extends HttpServlet {
         resp.setContentType("application/json");
         PrintWriter writer = resp.getWriter();
         Gson gson = new Gson();
-        writer.write(gson.toJson(comments));
+        writer.write(gson.toJson(comments));*/
+        
     }
 
     @Override

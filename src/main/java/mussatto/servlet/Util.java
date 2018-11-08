@@ -36,7 +36,8 @@ class Util {
     static void responseOkJSON(HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
         Gson gson = new Gson();
-        Map<String, Object> resultOk = new HashMap<>();
+        Map<String, Object> resultOk;
+        resultOk = new HashMap<String,Object>();
         resultOk.put("response", "OK");
         writer.write(gson.toJson(resultOk));
     }
